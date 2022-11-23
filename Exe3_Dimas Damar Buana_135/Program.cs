@@ -34,6 +34,13 @@ namespace Exe3_Dimas_Damar_Buana_135
             else
                 return false;//return false if the node is not found
         }
+        public bool listEmpty()
+        {
+            if (LAST == null)
+                return true;
+            else
+                return false;
+        }
 
     }
     internal class Program
