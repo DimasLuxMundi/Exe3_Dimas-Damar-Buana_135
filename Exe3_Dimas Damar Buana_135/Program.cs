@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace Exe3_Dimas_Damar_Buana_135
 {
+    class Node
+    {
+        /*creates Nodes for the circular nexted list*/
+        public int rollNumber;
+        public string name;
+        public Node next;
+    }
     internal class Program
     {
         static void Main(string[] args)
