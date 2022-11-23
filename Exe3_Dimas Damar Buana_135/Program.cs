@@ -67,6 +67,36 @@ namespace Exe3_Dimas_Damar_Buana_135
             else
                 Console.WriteLine("\nThe first record in the list is: \n\n " + LAST.next.rollNumber + "  " + LAST.next.name);
         }
+        public void addNode()
+        {
+            int rollNo;
+            string nm;
+            Console.Write("\nEnter the roll number of the students: ");
+            rollNo = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\nEnter the name of the student: ");
+            nm = Console.ReadLine();
+            Node newnode = new Node();
+            newnode.rollNumber = rollNo;
+            newnode.name = nm;
+            Node currentNode;
+            currentNode = LAST.next;
+
+            if (currentNode == LAST) {
+                newnode.next = LAST;
+                LAST.next = newnode;
+
+            }
+            else
+            {
+                newnode.next = currentNode;
+                LAST.next = newnode;
+                
+            }
+            return;
+        }
+
+        
+        
         static void Main(string[] args)
         {
             CircularList obj = new CircularList();
