@@ -132,9 +132,11 @@ namespace Exe3_Dimas_Damar_Buana_135
                         "\n 1. View all the records in the list" +
                         "\n 2. Search for a record in the list" +
                         "\n 3. Display the first record in the list" +
-                        "\n 4. Exit" +
+                        "\n 4. Add a node" +
+                        "\n 5. Delete a node" +
+                        "\n 6. Exit" +
                         
-                        "\n Enter your choice (1-4): ");
+                        "\n Enter your choice (1-6): ");
                     char ch = Convert.ToChar(Console.ReadLine());
                     switch (ch)
                     {
@@ -173,8 +175,27 @@ namespace Exe3_Dimas_Damar_Buana_135
                             break;
                         case '4':
                             {
-                                return;
-                            }                        
+                                obj.addNode();
+                            }
+                            break;
+                        case '5':
+                            {
+                                if (obj.listEmpty())
+                                {
+                                    Console.WriteLine("\nList is empty");
+                                    break;
+                                }
+                                Console.Write("Enter the roll number of the students" + " whose record is to be deleted: ");
+                                int rollNo = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine();
+                                if (obj.delNode(rollNo) == false)
+                                    Console.WriteLine("Record not found");
+                                else
+                                    Console.WriteLine("Record with roll number " + rollNo + " deleted \n");
+                            }
+                            break;
+                        case '6':
+                            return;
                         default:
                             {
                                 Console.WriteLine("\nInvalid option");
