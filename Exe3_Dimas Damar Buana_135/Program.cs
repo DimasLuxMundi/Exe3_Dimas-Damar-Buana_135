@@ -12,6 +12,7 @@ namespace Exe3_Dimas_Damar_Buana_135
         public int rollNumber;
         public string name;
         public Node next;
+        public Node prev;
     }
     class CircularList
     {
@@ -94,9 +95,32 @@ namespace Exe3_Dimas_Damar_Buana_135
             }
             return;
         }
+        public bool delNode(int rollNo)
+        {
+            Node previous, current;
+            previous = current = null;
+            if (Search(rollNo, ref previous, ref current) == false)
+                return false;
+            if (current == LAST)
+            {
+                LAST = LAST.next;
+                if (LAST != null)
+                    LAST.prev = null;
+                return true;
 
-        
-        
+            }
+            if (current.next == null)
+            {
+                previous.next = null;
+                return true;
+            }
+            previous.next = current.next;
+            current.next.prev = previous;
+            return true;
+        }
+
+
+
         static void Main(string[] args)
         {
             CircularList obj = new CircularList();
